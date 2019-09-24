@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开放地址法</title>
+</head>
+<body>
+
+</body>
+<script src="hash2.js"></script>
+<script>
+    console.time('hash2')
+  var someNames = ['david','mike','jack','amy','kk','jhon','tom','sary','cavin','aa']
+  var hash = new Hash2()
+  for (let i = 0;i<someNames.length;i++){
+    hash.insert(someNames[i],someNames[i])
+  }
+  hash.show()
+    console.timeEnd('hash2')
+    //用时hash2: 1730.766845703125ms
+</script>
+</html>

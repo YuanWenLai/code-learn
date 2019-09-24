@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="inp" type="text">
+</body>
+<script>
+    function debounce(fn) {
+      let timeout = null //创建一个标记来存放定时器的返回值
+      return function () {
+        clearTimeout() //每当用户输入，将前一个标志去掉
+        timeout = setTimeout(() => {
+          fn.apply(this,arguments)
+        },1000)
+      }
+    }
+    function sayHi() {
+      console.log('防抖成功')
+    }
+    var inp = document.getElementById('inp')
+    inp.addEventListener('input',debounce(sayHi))
+</script>
+</html>

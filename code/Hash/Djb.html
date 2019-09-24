@@ -1,0 +1,30 @@
+<!--//是目前公布的最有效的哈希函数-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DjbHash</title>
+</head>
+<body>
+
+</body>
+<script src="DJBHash.js"></script>
+<script>
+  console.time('DjbHash')
+  var someNames = ['david','mike','jack','amy','kk','jhon','tom','sary','cavin','aa']
+  var hash = new DJBHash()
+  for (let i = 0;i<someNames.length;i++){
+    hash.insert(someNames[i],someNames[i])
+  }
+  hash.show()
+  console.timeEnd('DjbHash')
+    //用时DjbHash: 1.140869140625ms
+
+    //查找一个值的时间
+    console.time('test')
+    hash.get('cavin')
+    console.timeEnd('test')
+
+    //test: 0.052978515625ms
+</script>
+</html>

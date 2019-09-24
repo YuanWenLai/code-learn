@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hash</title>
+</head>
+<body>
+
+</body>
+<script src="hash1.js"></script>
+<script>
+    //hash的地址冲突了，少了jack
+    console.time('hash1')
+    var someNames = ['david','mike','jack','amy','kk','jhon','tom','sary','cavin']
+    var hash = new Hash1()
+    for (let i = 0;i<someNames.length;i++){
+      hash.insert(someNames[i],someNames[i])
+    }
+    hash.show()
+    console.timeEnd('hash1')
+    //用时hash1: 1.8330078125ms
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsHash</title>
+</head>
+<body>
+<h1>Justin Sobel写的一个位操作的哈希函数</h1>
+</body>
+<script src="JSHash.js"></script>
+<script >
+  console.time("1")
+  var someNames = ['david','mike','jack','amy','kk','jhon','tom','sary','cavin']
+  var hash = new JSHash()
+  for (let i = 0;i<someNames.length;i++){
+    hash.insert(someNames[i],someNames[i])
+  }
+  hash.show()
+  console.timeEnd("1")
+  //用时1: 7270.187255859375ms
+    /*
+131565 kk
+4363557 amy
+4384648 tom
+136971015 sary
+136983339 jack
+137009946 jhon
+137097555 mike
+240689286 cavin
+249430170 david
+    * */
+</script>
+</html>

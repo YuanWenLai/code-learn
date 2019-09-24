@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="BST.js"></script>
+<script >
+  function test(){
+    let nums = new BST()
+    nums.insert(23)
+    nums.insert(45)
+    nums.insert(16)
+    nums.insert(37)
+    nums.insert(3)
+    nums.insert(99)
+    nums.insert(22)
+    /*console.log('inOrder...')
+    inOrder(nums.root)
+    console.log('##########')
+    inOrderUnRecur(nums.root)*/
+    /*console.log('preOrder...')
+    preOrder(nums.root)
+    console.log('##########')
+    preOrederUnRecur(nums.root)*/
+    console.log('postOrder...')
+    postOrder(nums.root)
+    console.log('##########')
+    postOrderUnRecur(nums.root)
+  }
+  window.test()
+</script>
+</html>

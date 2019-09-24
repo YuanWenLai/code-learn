@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BKDRHash</title>
+</head>
+<body>
+
+</body>
+<script src="BKDRHash.js"></script>
+<script>
+  console.time('BKDRHash')
+  var someNames = ['david','mike','jack','amy','kk','jhon','tom','sary','cavin','aa']
+  var hash = new BKDRHash()
+  for (let i = 0;i<someNames.length;i++){
+    hash.insert(someNames[i],someNames[i])
+  }
+  hash.show()
+  console.timeEnd('BKDRHash')
+    //时间BKDRHash: 3.35888671875ms
+    //并且有哈希冲突
+</script>
+</html>
