@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用get拦截，实现一个生成各种 DOM 节点的通用函数dom。</title>
+</head>
+
+<body>
+    <div></div>
+</body>
+<script>
+    const dom = new Proxy({}, {
+        get(target, property) {
+            return function(attrs = {}, ...children) {
+                const el = document.createElement(property)
+                console.log(attrs)
+                console.log(children)
+                    //遍历添加属性
+                for (let prop of Object.keys(attrs)) {
+                    el.setAttribute(prop, attrs[prop])
+                }
+                // 遍历添加子元素
+                for (let child of children) {
+                    if (typeof child === 'string') {
+                        child = document.createTextNode(child)
+                    }
+                    el.appendChild(child)
+                }
+                return el
+            }
+        }
+    })
+
+    const el = dom.div({},
+        'hi, my name is ',
+        dom.a({
+            href: '//example.com'
+        }, 'Mark'),
+        '.i like',
+        dom.ul({},
+            dom.li({
+                style: 'color:red'
+            }, 'red test'),
+            dom.li({}, 'food'),
+            dom.li({}, 'more...'),
+            dom.em({}, '123...')
+        ),
+        dom.div({
+                style: 'margin:101px'
+            },
+            dom.button({}, 'submit'),
+            dom.div({
+                    style: 'color:green'
+                },
+                dom.em({}, '123...'),
+                dom.div({
+                        style: 'color:green'
+                    },
+                    dom.em({}, '123...')
+                )
+            )
+        )
+    )
+    document.body.appendChild(el)
+</script>
+
+</html>
