@@ -1,0 +1,58 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-31 17:41:43
+ * @LastEditTime: 2020-03-31 18:02:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \code-learn\css学习\tu2-6.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px;
+            height: 150px;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .box1 {
+            background: yellow;
+            box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink, 2px 12px 5px 15px rgba(0, 0, 0, .8);
+        }
+        
+        .box2 {
+            background: gray;
+            outline: 2px dashed white;
+            outline-offset: -12px;
+        }
+        
+        .box3 {
+            background: green;
+            border-radius: 20px;
+            outline: 4px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box1">
+        多重边框
+    </div>
+    <div class="box2">
+        outline两层边框
+    </div>
+    <div class="box3">
+        outline边框是否贴合圆角
+    </div>
+</body>
+
+</html>

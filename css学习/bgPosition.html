@@ -1,0 +1,57 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-31 18:13:13
+ * @LastEditTime: 2020-03-31 18:36:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \code-learn\css学习\bgPosition.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵活的背景定位</title>
+    <style>
+        div {
+            width: 450px;
+            height: 350px;
+            margin: 50px;
+        }
+        
+        .box1 {
+            background: url('./images/ok-earth.png') no-repeat bottom right #8855aa;
+            background-size: 50%;
+            background-position: right 20px bottom 10px;
+        }
+        
+        .box2 {
+            padding: 20px;
+            background: url('./images/ok-earth.png') no-repeat bottom right #8855aa;
+            background-size: 50%;
+            background-position: right 20px bottom 10px;
+            background-origin: content-box;
+        }
+        
+        .box3 {
+            background: url('./images/ok-earth.png') no-repeat bottom right #8855aa;
+            background-size: 50%;
+            background-position: calc(100% - 20px) calc(100% - 10px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        背景图定位
+    </div>
+    <div class="box2">
+        根据内容区进行背景定位 padding20px
+    </div>
+    <div class="box3">
+        calc() 方案进行背景定位
+    </div>
+</body>
+
+</html>
