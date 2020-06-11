@@ -16,7 +16,9 @@
 </head>
 
 <body>
+<div id="demo">
 
+</div>
 </body>
 <script>
     var pipe = (function() {
@@ -41,7 +43,7 @@
     var pow = n => n * n
     var reverseInt = n => n.toString().split("").reverse().join("") | 0;
     var rest = pipe(3).double.pow.reverseInt.get
-    console.log(rest)
+    
 </script>
 
 </html>
