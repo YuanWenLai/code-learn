@@ -49,3 +49,24 @@ console.log("rect is an instance of Shape", rect instanceof Shape)
 
 rect.move(5,3)
 
+console.log("################################")
+
+// 使用第二个参数propertyObject
+var obj = Object.create(Object.prototype,{
+    foo: {
+        writable:true,
+        configurable: true,
+        value: 'hello world!'
+    },
+    name: {
+        configurable: true,
+        get: function() {return 'cavin'},
+        set: function(value) {
+            console.log("Set name",name)
+        },
+        enumerable: true
+    }
+})
+
+console.log(obj.name)
+console.log(obj.foo)

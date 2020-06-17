@@ -21,21 +21,37 @@
 </div>
 </body>
 <script>
+// console 的结果显示：
+// pipe -> fnName double
+// index.html:29 pipe -> fnName pow
+// index.html:29 pipe -> fnName reverseInt
+// index.html:29 pipe -> fnName get
+// index.html:35 pipe -> val 3
+// index.html:36 pipe -> fn n => n * 2
+// index.html:35 pipe -> val 6
+// index.html:36 pipe -> fn n => n * n
+// index.html:35 pipe -> val 36
+// index.html:36 pipe -> fn n => n.toString().split("").reverse().join("") | 0
+// index.html:53 rest 63
     var pipe = (function() {
         return function(value) {
             var funcStack = [];
             var oproxy = new Proxy({}, {
                 get: function(pipeObject, fnName) {
+                console.log("pipe -> fnName", fnName)
                     if (fnName === 'get') {
+                        // 语法：arr.reduce(callback,[initialValue])
                         return funcStack.reduce(function(val, fn) {
+                            console.log("pipe -> val", val)
+                            console.log("pipe -> fn", fn)
                             return fn(val);
-                        }, value);
+                        }, value);// initialValue （作为第一次调用 callback 的第一个参数。）
                     }
                     funcStack.push(window[fnName]);
                     return oproxy;
                 }
             });
-
+            
             return oproxy;
         }
     }());
@@ -43,6 +59,8 @@
     var pow = n => n * n
     var reverseInt = n => n.toString().split("").reverse().join("") | 0;
     var rest = pipe(3).double.pow.reverseInt.get
+    
+    console.log("rest", rest)
     
 </script>
 
