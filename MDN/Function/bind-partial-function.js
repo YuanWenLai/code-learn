@@ -1,6 +1,6 @@
 // 偏函数
 // bind() 的另一个最简单的用法是使一个函数拥有预设的初始参数
-
+//bind的偏函数设定就是一种函数柯里化
 function list(){
     return Array.prototype.slice.call(arguments)
 }
