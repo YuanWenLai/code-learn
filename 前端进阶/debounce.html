@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖(debounce)</title>
+</head>
+<body>
+    <div style="height: 200vh;">
+        <h1>防抖(debounce)和节流(throttle)</h1>
+    </div>
+</body>
+<script>
+
+    // 方法一：简单粗暴监听滚动条
+    function showTop() {
+        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+        console.log("showTop -> scrollTop", scrollTop)
+    }
+    // window.onscroll = showTop
+
+    // 方法二：实现防抖
+    /* 
+        fn[function] 需要防抖的函数
+        delay [number] 毫秒，防抖的期限值
+    */
+
+    // 防抖
+    function debounce(fn,delay) {
+        let timeoutId = null // 记录计时器的id
+        return function () {
+            if(timeoutId) clearTimeout(timeoutId)
+            timeoutId = setTimeout(fn,delay)
+        } 
+    }
+
+    // 节流 -- 计时器法
+    function throttle(fn,delay) {
+        let valid = true  // 状态位为true时，表示可以执行
+        return function () {
+            if(!valid) return false  // 状态位为false，不执行工作
+            
+            // 可以工作时，将状态位霸占，设为false
+            valid = false
+            setTimeout(() => {
+                // 一段时间后执行目标函数，状态位回归为true
+                fn()
+                valid = true
+            },delay)
+        } 
+    }
+
+    // 节流 -- 时间戳法
+    function throttleTime(fn,delay) {
+        let firstTime = null
+        let secondTime = null
+        return function() {
+            if(firstTime) {
+                secondTime = new Date().getSeconds()
+                if(secondTime*1000 - firstTime*1000  > delay){
+                    secondTime = null
+                    firstTime = new Date().getSeconds()
+                    fn() 
+                } 
+                return
+            }
+            firstTime = new Date().getSeconds()
+        }
+    }
+
+    // window.onscroll = debounce(showTop,100)  // 防抖:1s后再打印监听的滚动
+    // window.onscroll = throttle(showTop,1000)  // 节流:1s后再打印监听的滚动
+    window.onscroll = throttleTime(showTop,2000)  // 节流--时间戳:1s后再打印监听的滚动
+</script>
+</html>
