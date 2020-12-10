@@ -2,7 +2,7 @@
  * @Author: yuanwenlai
  * @Date: 2020-12-10 12:41:36
  * @LastEditors: g05047
- * @LastEditTime: 2020-12-10 12:58:16
+ * @LastEditTime: 2020-12-10 14:00:08
  * @Description: file content
  */
 
@@ -15,27 +15,25 @@ let matrix = [
 ]
 
 var findNumberIn2DArray = function(matrix, target) {
-    let n = matrix.length-1
-    let m = matrix[0].length-1
-    let i = 0, j = m
-    let flag = matrix[i][j]
-    // console.log(" ~ findNumberIn2DArray ~ m", matrix[i][j],j)
-
-    while(i < n || j > 0){
-        if(target < flag) {
-            j -= 1
-            flag = matrix[i][j]
-        }else if(target > flag) {
-            i += 1
-            flag = matrix[i][j]
-        }else if(target == flag) {
+    if( matrix == null ||
+        matrix.length == 0 || 
+        matrix[0].length == 0){
+            return false
+    }
+    let row = 0, colum  = matrix[0].length-1
+    while(row < matrix.length && colum >= 0){
+        if(target < matrix[row][colum]) {
+            colum--
+        }else if(target >  matrix[row][colum]) {
+            row++
+        }else if(target ==  matrix[row][colum]) {
             return true
         }
-        console.log(i,j)
     }
     return false
-    // console.log(" findNumberIn2DArray ~ n", matrix.length)
 };
 
 // findNumberIn2DArray(matrix,20)
-console.log(" findNumberIn2DArray(matrix,5)", findNumberIn2DArray(matrix,20))
+console.time()
+console.log(" findNumberIn2DArray(matrix,5)", findNumberIn2DArray(matrix,5))
+console.timeEnd()
