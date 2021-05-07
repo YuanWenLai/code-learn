@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-31 18:13:13
- * @LastEditTime: 2020-03-31 18:36:29
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-03-22 14:46:24
+ * @LastEditors: g05047
  * @Description: In User Settings Edit
  * @FilePath: \code-learn\css学习\bgPosition.html
  -->
@@ -39,11 +39,23 @@
             background-size: 50%;
             background-position: calc(100% - 20px) calc(100% - 10px);
         }
+        /* @media print{
+            .box2,.box1,.box3
+            {
+            display:none !important;
+            }
+        } */
     </style>
 </head>
 
 <body>
-    <div class="box1">
+    <div id="demo">
+
+    </div>
+    <div id="img" style="width: 100%;">
+        <img style="width: 500px" src="https://via.placeholder.com/150" alt="">
+    </div>
+    <div class="box1" id="12">
         背景图定位
     </div>
     <div class="box2">
@@ -53,5 +65,35 @@
         calc() 方案进行背景定位
     </div>
 </body>
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<script>
+    var targetDom = document.getElementById('img')
+    var target2 = document.getElementById('demo')
+    var body = document.body
+    // var printWindow = window.open();
+    // printWindow.document.write(targetDom);
+    // printWindow.print();
+    // window.print()
+    new html2canvas(targetDom, {
+		backgroundColor: "transparent",  //png图片透明
+		 allowTaint: true, //  显示图片
+		 useCORS: true  //允许跨域
+		}).then(canvas => {
+        console.log("🚀 ~ file: bgPosition.html ~ line 71 ~ canvas", canvas)
+        let oImg = new Image();
+			//  oImg.src = canvas.toDataURL();  // 导出图片
+    // console.log("🚀 ~ file: bgPosition.html ~ line 84 ~ oImg", oImg)
+    //     target2.setAttribute("src",oImg.src)
+            body.appendChild(canvas)
+			// canvas为转换后的Canvas对象
+            //  var printWindow = window.open();
+            // printWindow.document.write(canvas.innerHTML);
+        console.log("🚀 ~ file: bgPosition.html ~ line 73 ~ oImg", oImg)
+        // window.print(oImg)
+			 
+	});
 
+
+
+</script>
 </html>
