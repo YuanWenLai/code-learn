@@ -1,18 +1,17 @@
-// 1456. 定长子串中元音的最大数目
-/* 
-给你字符串 s 和整数 k 。
-
-请返回字符串 s 中长度为 k 的单个子字符串中可能包含的最大元音字母数。
-
-英文中的 元音字母 为（a, e, i, o, u）。
-
-*/
-
-/**
- * @param {string} s
- * @param {number} k
- * @return {number}
- */
+### 思路 
+ 
+ 窗口大小固定的滑动窗口
+ 1、首先确定第一个长度k的窗口中包含元音字母的个数windowCount，此时记录最大值max = windowCount
+ 2、然后滑动窗口，对应新增的右元素，若是元音字母，windowCount++
+ 3、对应减少的左元素，若是元音字母，windowCount--
+ 4、每次比较保留最大值，max = Math.max(max, windowCount)
+ 
+ 
+### 代码 
+ 
+ 
+``` js
+ 
  var maxVowels = function(s, k) {
     const vowelArr = ['a','e','i','o','u']
     let l = 0, r = k - 1
@@ -38,6 +37,8 @@
         max = Math.max(max, windowCount)
     }
     return max
-};
-
-console.log(maxVowels("tnfazcwrryitgacaabwm",4)) 
+}
+ 
+``` 
+ 
+**复杂度分析** - 时间复杂度：O(N)，其中 N 为数组⻓度。 - 空间复杂度：O(1)
