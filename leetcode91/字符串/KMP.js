@@ -56,4 +56,7 @@ function getNext(ps) {
     return next
 }
 
-console.log(KMP('',''))
+
+console.time()
+console.log(KMP('BBC ABCDABABCDAB ABCDABCDABDE','ABCDABD'))
+console.timeEnd()
