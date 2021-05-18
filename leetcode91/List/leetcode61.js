@@ -36,3 +36,41 @@ var rotateRight = function(head, k) {
     fast.next = head;
     return slow
   };
+
+// 快慢指针来旋转链表
+// 向右移动 k 个位置，取k相对链表长度的模，例如500m赛道，跑100m和1100m都相对起点移动同样的距离
+
+var rotateRight2 = function(head, k) {
+  if(!head || !head.next || k === 0) return head;
+
+  let length = 0, cur = head;
+
+  while(cur) {
+    cur = cur.next
+    length++
+  }
+
+  // 取模移动的k值
+  k = k % length
+  let slow = head,
+      fase = head
+  // 遍历list，slow让fast k步
+  while(fast.next) {
+    // k > 0时，slow先别动
+    if(k-- <= 0) {
+      // k <= 0时，才可以起跑
+      slow = slow
+    }
+    fast = fast.next
+  }
+
+  // 已经标记完slow和fast的位置了，进行链表的拼接工作
+  fast.next = head
+  let fastHead = slow.next
+  // 清除slow对快队列的关系
+  slow.next = null
+
+  return fastHead
+
+
+};
