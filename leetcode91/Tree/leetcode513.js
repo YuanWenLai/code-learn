@@ -15,7 +15,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
- var findBottomLeftValue = function(root) {
+var findBottomLeftValue = function(root) {
     if(!root) return 0
     const queue = [root]
     let mostLeftVal = 0

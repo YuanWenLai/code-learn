@@ -22,7 +22,7 @@
 
 function dfs(root,preNum,sumArr) {
     if(root == null) return 0
-    const sum = preNum  + root.val
+    const sum = preNum + root.val
     
     // 当左右子节点都为空时，直接返回sum
     if(root.left == null && root.right == null) {
