@@ -41,8 +41,8 @@ var deserialize = function(data) {
 
         // 构建该值的树节点,作为为父亲节点
         const root = new TreeNode(rootVal)  
-        root.left = helper(nodeList)  // 递归创建左子树?
-        root.right = helper(nodeList) // 递归创建右子树?
+        root.left = helper(nodeList)  // 递归创建左子树
+        root.right = helper(nodeList) // 递归创建右子树
         return root
     }
 
