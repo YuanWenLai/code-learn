@@ -43,3 +43,5 @@ var detectCycle1 = function(head) {
     }
     return null
 };
+
+// see: https://leetcode-cn.com/problems/find-the-duplicate-number/solution/qian-duan-ling-hun-hua-shi-tu-jie-kuai-man-zhi-z-3/
