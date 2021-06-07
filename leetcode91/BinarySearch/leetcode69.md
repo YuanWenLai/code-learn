@@ -1,13 +1,14 @@
-/*
- * @Author: yuanwenlai
- * @Date: 2021-03-03 18:30:21
- * @LastEditors: g05047
- * @LastEditTime: 2021-03-03 19:40:01
- * @Description: file content
- */
+### 题目描述
 
-//  计算并返回 x 的平方根，其中 x 是非负整数。
+69. x 的平方根
 
+### 思路
+
+1. 二分法
+
+### 代码
+
+```js
 var sqrt = function(x) {
     let l = 0
     let r =x
@@ -26,7 +27,6 @@ var sqrt = function(x) {
     }
     return l
 }
+```
 
-console.log(sqrt(6))
-
-// 二分法
+**复杂度分析** - 时间复杂度：O(logn)。 - 空间复杂度：O(1)
