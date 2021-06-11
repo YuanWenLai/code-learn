@@ -11,10 +11,11 @@
 // 658. 找到 K 个最接近的元素
 var findClosestElements = function(arr, k, x) {
     let l = 0
-    let r = arr.length - k
+    let r = arr.length - 1
     let m = 0
     while(l < r) {
         m = Math.floor((r+l)/2)
+        // 如果左边界点与x的差值 > 右边界点与x的差值 —> 向右侧靠近
         if(Math.abs(x-arr[m]) > Math.abs(arr[m+k] - x)){
             l = m + 1
         }else {

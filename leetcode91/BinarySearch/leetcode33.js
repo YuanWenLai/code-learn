@@ -9,27 +9,32 @@
 
  // 33. 搜索旋转排序数组
  var search = function(nums, target) {
-    let r = nums.length - 1
+    let r = nums.length -1
     let l = 0
-    let m
-    while (l <= r) {
-        m = Math.floor(l + (r - l) / 2);
-        if(nums[m] === target) return nums.indexOf(target)
-        // nums[mid] == nums[start] 了，比如 30333 。这个时候可以选择舍弃 start，也就是 start 右移一位
-        while( l < m && nums[l] == nums[m]){
-            l += 1
+    let mid = 0
+    while(l <= r) {
+        mid = Math.floor((l+r)/2)
+        if(nums[mid] === target) return nums.indexOf(target)
+
+        // 排查重复项
+        while(l < mid && nums[l] === nums[mid]) {
+            l ++
         }
-        if(nums[l] <= nums[m]) {
-            if(nums[l] <= target && target <= nums[m]) {
-                r = m -1
+
+        // 搜小搜索范围
+        if(nums[l] <= nums[mid]) {
+            // target是否在左调度区
+            if(nums[l] <= target && target <= nums[mid]) {
+                r = mid - 1
             }else {
-                l = m + 1
+                l = mid + 1
             }
         }else {
-            if(nums[m] < target && target <= nums[r]){
-                l = m + 1
+            // // target是否在右调度区
+            if(nums[mid] < target && target <= nums[r]) {
+                l = mid + 1
             }else {
-                r = m -1
+                r = mid - 1
             }
         }
     }
