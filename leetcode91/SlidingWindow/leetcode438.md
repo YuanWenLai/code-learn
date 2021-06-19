@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### 思路
 
 hash+滑动窗口
@@ -5,6 +6,23 @@ hash+滑动窗口
 ### 代码
 
 ```js
+=======
+### 思路 
+ 
+ 滑动窗口+哈希(还是暴力了)
+ 
+ 
+### 代码 
+ 
+ 
+``` js
+ 
+ /**
+ * @param {string} s
+ * @param {string} p
+ * @return {number[]}
+ */
+>>>>>>> f74d03cfe46cc83fe3984510c4a9dd69923f8941
  var findAnagrams = function(s, p) {
     if(s.length < p.length) return []
     let pObj={}
@@ -41,4 +59,6 @@ function isXORbit(str,pObj) {
     }
     return true
 }
-```
+``` 
+ 
+**复杂度分析** - 时间复杂度：O(N^2)。 - 空间复杂度：O(N^2)
