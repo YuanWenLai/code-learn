@@ -2,7 +2,7 @@
 
 
 多源BFS
-![](https://raw.githubusercontent.com/YuanWenLai/code-learn/master/leetcode91/Tree/leetcode297.png)
+![](https://raw.githubusercontent.com/YuanWenLai/code-learn/master/leetcode91/BFS/duoyuan.png)
 see:https://leetcode-cn.com/problems/as-far-from-land-as-possible/solution/jian-dan-java-miao-dong-tu-de-bfs-by-sweetiee/
 ### 代码
 
