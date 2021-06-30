@@ -5,19 +5,32 @@ dp
 ### 代码 
  
 ``` js
- var minCostClimbingStairs = function(cost) {
-    var n = cost.length
-    const dp = new Array(n+1)
-    dp[0] = dp[1] = 0
-    for(let i=2;i<=n;i++) {
-        dp[i] = Math.min(dp[i-1]+cost[i-1],dp[i-2]+cost[i-2])
+ var knightProbability = function (N, K, r, c) {
+    let keyValue = {};
+    let getTimes = function (N, K, r, c) {
+        if (r < 0 || r >= N || c < 0 || c >= N) {
+            return 0;
+        }
+        if (K == 0)
+            return 1;
+        let key = K + "|" + r + "|" + c
+        if (keyValue[key])
+            return keyValue[key];
+        //8种跳法
+        let times = getTimes(N, K - 1, r + 2, c + 1)
+            + getTimes(N, K - 1, r + 2, c - 1)
+            + getTimes(N, K - 1, r - 2, c + 1)
+            + getTimes(N, K - 1, r - 2, c - 1)
+            + getTimes(N, K - 1, r + 1, c + 2)
+            + getTimes(N, K - 1, r - 1, c + 2)
+            + getTimes(N, K - 1, r + 1, c - 2)
+            + getTimes(N, K - 1, r - 1, c - 2);
+        keyValue[key] = times;
+        return times;
     }
-    return dp[n]
+    return getTimes(N, K, r, c) / Math.pow(8, K);
 };
 ``` 
 
-**复杂度分析** 
-- 时间复杂度：O(N) 
-- 空间复杂度：O(N)
 
 
