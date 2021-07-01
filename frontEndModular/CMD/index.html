@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>MD规范专门用于浏览器端，模块的加载是异步的，模块使用时才会加载执行。</div>
+    <div>
+        CMD规范整合了CommonJS和AMD规范的特点
+    </div>
+    
+</body>
+<script src="./js/lib/sea.js"></script>
+<script>
+    seajs.use('./js/modules/main')
+    // m1 show()www.baidu.com
+    // m4 show->>m2: i will back
+    // 异步引入依赖模块m3 hahahaha
+</script>
+</html>

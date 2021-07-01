@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>02NameSpace模式</div>
+    <div>不安全，可以被直接修改数据</div>
+</body>
+<script type="text/javascript" src="./module1.js"></script>
+<script type="text/javascript" src="./module2.js"></script>
+<script type="text/javascript" >
+    myModule1.foo()
+    myModule1.bar()
+    
+    myModule2.foo()
+    myModule2.bar()
+
+    // module1.js:10 halo name m1 foo halo name m1
+    //  module1.js:13 halo name m1 bar halo name m1
+    //  module2.js:10 halo name m2 foo halo name m2
+    //  module2.js:13 halo name m2 bar halo name m2
+
+    // 修改数据
+    myModule1.data = 'change module1 data,hhahha'
+    myModule1.foo()
+    // halo name m1 foo change module1 data,hhahha
+
+    // 不安全，可以被直接修改数据
+</script>
+</html>

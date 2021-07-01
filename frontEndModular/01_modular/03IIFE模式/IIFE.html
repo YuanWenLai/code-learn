@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>03IIDE模式</div>
+    <div>不安全，可以被直接修改数据</div>
+</body>
+<script type="text/javascript" src="./module1.js"></script>
+<script type="text/javascript" >
+    
+    myModule.foo() //foo()i am IIFE Data
+    myModule.bar() // bar()i am IIFE Data //i am other fun
+
+    // 无法访问私有数据，并无法修改内部的data，只能修改外部引用的data
+    console.log('data',myModule.data) // undefined
+    myModule.data = 233
+    console.log('data',myModule.data) // 233
+
+    // 修改的data数据后，无法改变内部的data
+    myModule.foo() //foo()i am IIFE Data
+
+   // see:https://www.cnblogs.com/helloyoyo/p/12566796.html
+</script>
+</html>

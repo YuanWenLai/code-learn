@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>未使用AMD规范</div>
+    <div>依赖的前置函数容易报错</div>
+    <div>引用的顺序一定要正确</div>
+</body>
+<!-- <script src="./alerter.js"></script>
+<script src="./dataService.js"></script>
+<script src="./main.js"></script> -->
+<!-- Uncaught ReferenceError: dataService is not defined -->
+<!-- Uncaught TypeError: alerter.showMsg is not a function -->
+
+<script src="./dataService.js"></script>
+<script src="./alerter.js"></script>
+<script src="./main.js"></script>
+</html>

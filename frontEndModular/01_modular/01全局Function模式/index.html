@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>01全局Function模式</div>
+    <div>检测函数命名冲突</div>
+</body>
+<script type="text/javascript" src="./module1.js"></script>
+<script type="text/javascript" src="./module2.js"></script>
+<script type="text/javascript" >
+    foo()
+    bar()
+    /* 
+        module2.js:9 halo m2 foo
+        module1.js:13 halo bar
+    */
+
+    // module1的foo被module2的foo覆盖了
+    // 根据加载的先后顺序，后面加载的覆盖前面的
+</script>
+</html>
+
+<!--  -->
